@@ -18,8 +18,17 @@ type (
 
 	FeedResponse struct {
 		Response
-		Feed  *Feed   `json:"feed,omitempty"`
-		Feeds []*Feed `json:"feeds,omitempty"`
+		UploadToken string  `json:"uploadToken,omitempty"`
+		Feed        *Feed   `json:"feed,omitempty"`
+		Feeds       []*Feed `json:"feeds,omitempty"`
+	}
+
+	FriendshipResponse struct {
+		Response
+		UserId   string `json:"friendId,omitempty"`
+		NickName string `json:"friendName,omitempty"`
+		Avatar   string `json:"avatar,omitempty"`
+		Relation int    `json:"relation"`
 	}
 
 	MusicResponse struct {

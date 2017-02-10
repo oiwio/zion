@@ -274,7 +274,7 @@ func GetUserById(s *mgo.Session, userId bson.ObjectId) (*User, error) {
 
 	user := new(User)
 	err = Collection(s, user).FindId(userId).One(user)
-	fmt.Println(err)
+
 	return user, err
 }
 
