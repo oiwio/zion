@@ -18,7 +18,7 @@ type (
 
 	FeedResponse struct {
 		Response
-		UploadToken string  `json:"uploadToken,omitempty"`
+		UploadToken string  `json:"token,omitempty"`
 		Feed        *Feed   `json:"feed,omitempty"`
 		Feeds       []*Feed `json:"feeds,omitempty"`
 	}
