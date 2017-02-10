@@ -18,9 +18,9 @@ type (
 
 	FeedResponse struct {
 		Response
-		UploadToken string  `json:"token,omitempty"`
-		Feed        *Feed   `json:"feed,omitempty"`
-		Feeds       []*Feed `json:"feeds,omitempty"`
+		Token string  `json:"token,omitempty"`
+		Feed  *Feed   `json:"feed,omitempty"`
+		Feeds []*Feed `json:"feeds,omitempty"`
 	}
 
 	FriendshipResponse struct {
