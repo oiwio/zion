@@ -42,4 +42,9 @@ type (
 		Comment  *Comment   `json:"comment,omitempty"`
 		Comments []*Comment `json:"comments,omitempty"`
 	}
+
+	TagResponse struct {
+		Response
+		Tag *Tag `json:"tag,omitempty"`
+	}
 )
