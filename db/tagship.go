@@ -54,7 +54,7 @@ func FollowTag(s *mgo.Session, initiatorId bson.ObjectId, tagId bson.ObjectId) (
 	return tagship, err
 }
 
-func UnfollowTag(s *mgo.Session, initiatorId bson.ObjectId, tagId bson.ObjectId) error {
+func UnFollowTag(s *mgo.Session, initiatorId bson.ObjectId, tagId bson.ObjectId) error {
 	var (
 		err     error
 		tagship *Tagship
@@ -94,4 +94,20 @@ func GetTagshipsByInitiatorId(s *mgo.Session, initiatorId bson.ObjectId) ([]*Tag
 			"initiatorId": initiatorId,
 		}).Sort("-initiateAt").All(&tagships)
 	return tagships, err
+}
+
+func IsTagFollowed(s *mgo.Session, initiatorId bson.ObjectId, tagId bson.ObjectId) bool {
+	var (
+		err error
+	)
+	tagship := new(Tagship)
+	err = Collection(s, tagship).Find(
+		bson.M{
+			"initiatorId": initiatorId,
+			"tagId":       tagId,
+		}).One(tagship)
+	if err == nil {
+		return true
+	}
+	return false
 }

@@ -21,7 +21,7 @@ type (
 		Audio      *Audio    `json:"audio,omitempty" bson:"audio,omitempty"`
 		Music      *Music    `json:"music,omitempty" bson:"music,omitempty"`
 
-		Tags          []*Tag          `json:"tags,omitempty" bson:"tags,omitempty"`
+		Tags          []*FeedTag      `json:"tags,omitempty" bson:"tags,omitempty"`
 		LikedCount    int64           `json:"likedCount,omitempty" bson:"likedCount,omitempty"`
 		LikedUsers    []bson.ObjectId `json:"likeUsers,omitempty" bson:"likeUsers,omitempty"`
 		CommentsCount int64           `json:"commentsCount,omitempty" bson:"commentsCount,omitempty"`
@@ -31,6 +31,12 @@ type (
 
 		CreateAt int64 `json:"createAt,omitempty" bson:"createAt,omitempty"`
 		UpdateAt int64 `json:"updateAt,omitempty" bson:"updateAt,omitempty"`
+	}
+
+	FeedTag struct {
+		TagId   bson.ObjectId `json:"tagId" bson:"tagId"`
+		Name    string        `json:"name" bson:"name"`
+		AddUser bson.ObjectId `json:"addUser,omitempty" bson:"addUser,omitempty"`
 	}
 
 	Audio struct {

@@ -45,6 +45,8 @@ type (
 
 	TagResponse struct {
 		Response
-		Tag *Tag `json:"tag,omitempty"`
+		Tag           *Tag   `json:"tag,omitempty"`
+		Tags          []*Tag `json:"tags,omitempty"`
+		IsTagFollowed bool   `json:"isTagFollowed,omitempty"`
 	}
 )
