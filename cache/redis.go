@@ -23,32 +23,3 @@ func newPool() *redis.Pool {
 		},
 	}
 }
-
-func set(args... string) error {
-	var (
-		err error
-	)
-	c := pool.Get()
-	defer c.Close()
-	_, err = c.Do("SET", args)
-	return err
-}
-
-func get(key string) (string, error) {
-	var (
-		err   error
-		value string
-	)
-	c := pool.Get()
-	defer c.Close()
-	value, err = redis.String(c.Do("GET", key))
-	return value, err
-}
-
-func del(key string)error{
-    var(err error)
-    c:=pool.Get()
-    defer c.Close()
-    _,err=c.Do("DEL",key)
-    return err
-}

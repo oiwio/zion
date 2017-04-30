@@ -17,6 +17,7 @@ type (
 		TagName         string        `json:"tagName,omitempty" bson:"tagName,omitempty"`
 		TagCover        string        `json:"tagcover,omitempty" bson:"tagcover,omitempty"`
 		InitiateAt      int64         `json:"initiateAt" bson:"initiateAt"`
+		LastQueryAt     int64         `json:"lastQueryAt,omitempty" bson:"lastQueryAt,omitempty"`
 	}
 )
 
